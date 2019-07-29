@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Route }  from "react-router-dom";
+import Login from './components/Login.js';
+import SignUp from "./components/SignUp";
+import Display from "./components/Display";
 
-function App() {
+function App () {
+
+  const [users, setUsers] = useState([]);
+  console.log(setUsers);
+
+  function newUser(user) {
+    setUsers([...users, user])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+    <div className="App">
+      <h1> TESTING </h1>
+
+      {/* ///Alexis */}
+      <SignUp newUser={newUser}/>
+      {users.map(user => (
+        <Display user={user} />
+      ))}
+
+      
+
+      {/* <Route exact path="/" component={SignUp}/> */}
+      <Login />
+    </div>
+
+    
+  )
+}
+export default App
