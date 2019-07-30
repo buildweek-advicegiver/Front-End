@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, CardTitle, CardPost, CardEditButton, Button, Label } from "./StyledPosts";
+import { Card, CardTitle, CardPost, CardEditButton, Button, Label, Form } from "./StyledPosts";
 
 const EditPosts = props => {
   const { title, post, id } = props.post;
@@ -28,7 +28,7 @@ const EditPosts = props => {
   };
 
   return editing ? (
-    <form onSubmit={handleUpdate}>
+    <Form onSubmit={handleUpdate}>
       <h1>Add Question</h1>
       <div>
         <Label htmlFor="Title">
@@ -56,7 +56,7 @@ const EditPosts = props => {
         </label>
       </div>
       <button>Submit Question</button>
-    </form>
+    </Form>
   ) : (
     <Card>
       <CardTitle>
