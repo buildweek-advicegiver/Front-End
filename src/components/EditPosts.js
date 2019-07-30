@@ -1,33 +1,35 @@
 import React, { useState } from "react";
 
-const AddPosts = props => {
+const EditPosts = props => {
+  const { title, post, id } = props.post;
+
   const [input, setInput] = useState({
     info:"",
-    title: "",
-    post: "",
-    id: null
+    title: title,
+    post: post,
+    id: id
   });
+  const [editing, setEditing] = useState(false);
 
-  const inputHandler = e => {
+  const handleEdit = e => {
+    setEditing(!editing);
+  };
+
+  const inputHandler = e => {;
     setInput({ ...input, [e.target.getAttribute('info')]: e.target.value });
   };
 
-  const submitHandler = e => {
+  const handleUpdate = e => {
     e.preventDefault();
-    props.add({ ...input, id: Math.random() });
-    setInput({
-        info:"",
-        title: "",
-        post: "",
-        id: null
-    });
+    props.update(input);
+    setEditing(false);
   };
 
-  return (
-    <form onSubmit={submitHandler}>
+  return editing ? (
+    <form onSubmit={handleUpdate}>
       <h1>Add Question</h1>
       <div>
-        <label htmlFor="Name">
+        <label htmlFor="Title">
           Title:{" "}
           <input
             type="text"
@@ -50,9 +52,16 @@ const AddPosts = props => {
       </div>
       <button>Submit Question</button>
     </form>
+  ) : (
+    <div>
+      <h3>Title</h3>
+      <p>{title}</p>
+      <h3>Post</h3>
+      <p>{post}</p>
+      <button onClick={handleEdit}>Edit</button>
+    </div>
   );
 };
 
-export default AddPosts;
-// rows="10" cols="30" <--note for textarea instead of input, but check if project works with input
+export default EditPosts;
 //Mariam Farrukh
