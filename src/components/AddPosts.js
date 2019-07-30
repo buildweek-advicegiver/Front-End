@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button, Form } from "semantic-ui-react";
 
 const AddPosts = props => {
   const [input, setInput] = useState({
@@ -26,9 +25,9 @@ const AddPosts = props => {
   };
 
   return (
-    <Form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler}>
       <h1>Add Question</h1>
-      <Form.Field>
+      <div>
         <label htmlFor="Name">
           Title:{" "}
           </label>
@@ -38,8 +37,8 @@ const AddPosts = props => {
             onChange={inputHandler}
             info="title"
           />
-      </Form.Field>
-      <Form.Field>
+      </div>
+      <div>
         <label htmlFor="Post">
           Post:{" "}
         </label>
@@ -51,9 +50,9 @@ const AddPosts = props => {
             onChange={inputHandler}
             info="post"
           />
-      </Form.Field>
-      <Button type="submit">Submit Question</Button>
-    </Form>
+      </div>
+      <button type="submit">Submit Question</button>
+    </form>
   );
 };
 

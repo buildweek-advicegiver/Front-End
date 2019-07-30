@@ -1,14 +1,7 @@
 import React, { useState } from 'react'
 import EditPosts from "./components/EditPosts.js";
 import AddPosts from "./components/AddPosts.js";
-import styled from "styled-components";
-
-
-const FullDiv = styled.div`
-  width: auto;
-  background-color:	#0A235C;
-  // height: ${window.innerHeight}px;
-`;
+import {FullDiv} from "./StyledPosts.js";
 
 function Posts () {
     const [posts, setPosts] = useState([]);
