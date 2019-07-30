@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Card, CardTitle, CardPost, CardEditButton, Button, Label, Form } from "./StyledPosts";
 
 const EditPosts = props => {
   const { title, post, id } = props.post;
@@ -21,23 +22,27 @@ const EditPosts = props => {
 
   const handleUpdate = e => {
     e.preventDefault();
+    //** */Add in axios post request when back-end's completed **//
     props.update(input);
     setEditing(false);
   };
 
   return editing ? (
-    <form onSubmit={handleUpdate}>
-      <h1>Add Question</h1>
+    <Form onSubmit={handleUpdate}>
+      <h2>Edit Question</h2>
       <div>
-        <label htmlFor="Title">
+        <Label htmlFor="Title">
           Title:{" "}
+        </Label>
           <input
+            placeholder="Title"
             type="text"
             value={input.title}
             onChange={inputHandler}
             info="title"
           />
-        </label>
+      </div>
+      <div>
         <label htmlFor="Post">
           Post:{" "}
           <textarea
@@ -51,15 +56,21 @@ const EditPosts = props => {
         </label>
       </div>
       <button>Submit Question</button>
-    </form>
+    </Form>
   ) : (
-    <div>
-      <h3>Title</h3>
-      <p>{title}</p>
-      <h3>Post</h3>
-      <p>{post}</p>
-      <button onClick={handleEdit}>Edit</button>
-    </div>
+    <Card>
+      <CardTitle>
+        <h3>Title</h3>
+          <p>{title}</p>
+      </CardTitle>
+      <CardPost>
+        <h3>Post</h3>
+          <p>{post}</p>
+      </CardPost>
+      <CardEditButton>
+        <Button onClick={handleEdit}>Edit</Button>
+      </CardEditButton>
+    </Card>
   );
 };
 
