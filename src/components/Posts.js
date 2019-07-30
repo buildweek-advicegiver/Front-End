@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import EditPosts from "./components/EditPosts.js";
-import AddPosts from "./components/AddPosts.js";
-import {FullDiv} from "./StyledPosts.js";
+import EditPosts from "./EditPosts.js";
+import AddPosts from "./AddPosts.js";
+import { FullDiv } from "./StyledPosts";
 
 function Posts () {
     const [posts, setPosts] = useState([]);
@@ -17,7 +17,7 @@ function Posts () {
     ]);
     
     return(
-        <FullDiv className="App">
+        <FullDiv className="PostPage">
             <div>
                 {posts.map((post, i) => (
                     <EditPosts post={post} key={i} update={update} />

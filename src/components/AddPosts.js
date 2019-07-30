@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form } from "./StyledPosts";
 
 const AddPosts = props => {
   const [input, setInput] = useState({
@@ -25,7 +26,7 @@ const AddPosts = props => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <Form onSubmit={submitHandler}>
       <h1>Add Question</h1>
       <div>
         <label htmlFor="Name">
@@ -51,8 +52,8 @@ const AddPosts = props => {
             info="post"
           />
       </div>
-      <button type="submit">Submit Question</button>
-    </form>
+      <button>Submit Question</button>
+    </Form>
   );
 };
 
