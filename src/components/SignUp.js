@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Sign, Context, SignupBtn } from "./StyledWidgets";
+import { Sign, Context, SignupBtn, Header } from "./StyledWidgets";
 
 ////ALEXIS'S SIGN-UP FORM WORK
 
@@ -31,6 +31,11 @@ export default function SignUp(props) {
         <Sign>
             <form onSubmit={handleSubmit}>
                 <Context>
+
+                    <Header>
+                    <h2>Sign Up</h2>
+                    </Header>
+
                     <div className="form-group">
                         <label>First Name: </label>
                             <input
