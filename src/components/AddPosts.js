@@ -27,7 +27,7 @@ const AddPosts = props => {
 
   return (
     <Form onSubmit={submitHandler}>
-      <h1>Add Question</h1>
+      <h2>Ask A Question</h2>
       <div>
         <label htmlFor="Name">
           Title:{" "}

@@ -29,7 +29,7 @@ const EditPosts = props => {
 
   return editing ? (
     <Form onSubmit={handleUpdate}>
-      <h1>Add Question</h1>
+      <h2>Edit Question</h2>
       <div>
         <Label htmlFor="Title">
           Title:{" "}

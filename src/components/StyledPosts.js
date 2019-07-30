@@ -7,9 +7,11 @@ export const Card = styled.div`
   flex-direction: column;
   margin-left: 2em;
   margin-right: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   padding: 0.5em;
   background-color: #f5f5f5;
-  height: 20em;
+  height: auto;
 `;
 
 export const CardTitle = styled.div`
