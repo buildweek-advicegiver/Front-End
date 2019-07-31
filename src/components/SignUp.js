@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default function SignUp(props) {
     console.log(props);
-    const [user, setUser] = useState({firstname: '', lastname: '', username:'', email: '', password: '', gender: '', age: ''});
+    const [user, setUser] = useState({firstname: '', lastname: '', username:'', email: '', password: '', gender: '', age: '', usertype: ''});
 
     function handleChange(event) {
         const updatedUser = {...user, [event.target.name]: event.target.value};
@@ -18,7 +18,9 @@ export default function SignUp(props) {
     function handleSubmit(e) {
         e.preventDefault();
         //** */Add in axios post request when back-end's completed **//
-        axios.post('https://theadvice-giver.herokuapp.com/signup')
+        axios.post('https://theadvice-giver.herokuapp.com/signup', {headers: {
+            'Content-Type': 'application/json'
+          }})
         
         //handle success
         .then(res => {
@@ -114,7 +116,7 @@ export default function SignUp(props) {
                                 className= "form-group" 
                                 onChange={handleChange} 
                                 value="male" 
-                                checked={true} />
+                                />
                                  Male
                             </label>
                     </div>
@@ -153,6 +155,21 @@ export default function SignUp(props) {
                                 value= {user.age}
                             />
                     </div> 
+                    <div className= "form-group">
+                        <label>User Type:</label>
+                            <select 
+                                type= "usertype"
+                                name= "usertype"
+                                className= "form-group"
+                                onChange= {handleChange}
+                                value={user.usertype} required>
+                                    <option value="">Select Category</option>
+                                    <option value="Advisor">Advisor</option>
+                                    <option value="Advice Seeker">Advice Seeker</option>
+                                    
+
+                            </select>
+                    </div>
                             
                     
 
