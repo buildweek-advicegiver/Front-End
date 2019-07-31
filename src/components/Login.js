@@ -4,10 +4,8 @@ import { LoginBtn, LoginImg } from "./StyledWidgets";
 
 import axios from 'axios';
 
-import Header from './Header.js';
 
-
-
+// Kelly
 
 
 export default function Login(props) {
@@ -52,14 +50,6 @@ export default function Login(props) {
     }
 
 
-
-
-
-
-
-
-
-
 // Returns
 
 
@@ -69,8 +59,6 @@ export default function Login(props) {
         <form onSubmit={handleSubmit} >
 
             <divContainer>
-
-                <Header />
                 
                 
                 <label> Username </label>
@@ -79,7 +67,7 @@ export default function Login(props) {
                 />
                 
                 <label> Password </label>
-                <input type='text' name='password' placeholder='Password' onChange={handleChange}
+                <input type='password' name='password' placeholder='Password' onChange={handleChange}
                 value={member.password}
                 />
                 <LoginBtn type="submit">Login</LoginBtn>
@@ -96,6 +84,3 @@ export default function Login(props) {
 }
 
 
-
-// test again
-// Kelly Moreira
