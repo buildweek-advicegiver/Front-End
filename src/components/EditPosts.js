@@ -61,10 +61,10 @@ const EditPosts = props => {
             onChange={inputHandler} 
             value={input.category} required>
               <option value="">Select Category</option>
-              <option value="mental health">Mental Health</option>
-              <option value="relationship">Relationship</option>
-              <option value="career">Career</option>
-              <option value="misc">Misc.</option>
+              <option value="Mental Health">Mental Health</option>
+              <option value="Relationship">Relationship</option>
+              <option value="Career">Career</option>
+              <option value="Misc">Misc.</option>
             </select>
       </div>
       <div>
