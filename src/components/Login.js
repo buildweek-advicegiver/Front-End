@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 
+
 import { LoginBtn, LoginImg } from "./StyledWidgets";
+
 
 import axios from 'axios';
 
+// Kelly
 
 
 export default function Login(props) {
@@ -29,6 +32,7 @@ export default function Login(props) {
         
         console.log('member state', member);
 
+
         axios.post('https://theadvice-giver.herokuapp.com/login', `grant_type=password&username=${member.username}&password=${member.password}`, {
      headers: {
        // btoa is converting our client id/client secret into base64
@@ -46,14 +50,6 @@ export default function Login(props) {
 
 
     }
-
-
-
-
-
-
-
-
 
 
 // Returns
@@ -74,7 +70,9 @@ export default function Login(props) {
                 />
                 
                 <label> Password </label>
-                <input type='text' name='password' placeholder='Password' onChange={handleChange}
+
+                <input type='password' name='password' placeholder='Password' onChange={handleChange}
+
                 value={member.password}
                 />
                 <LoginBtn type="submit">Login</LoginBtn>
@@ -91,6 +89,3 @@ export default function Login(props) {
 }
 
 
-
-// test again
-// Kelly Moreira

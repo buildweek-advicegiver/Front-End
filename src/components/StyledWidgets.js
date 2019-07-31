@@ -60,7 +60,19 @@ export const LoginImg = styled.img`
 display: block;
 margin-left: auto;
 margin-right: auto;
-width: 88.5rem;
+width: 89rem;
+height: 46.8rem;
+
+@media (max-width: 800px) {
+
+   
+    
+  }
+
+  @media (max-width: 500px) {
+    display: none;
+}
+
 
 
 `;
@@ -79,20 +91,20 @@ font-size: 1rem;
 &:hover {
     background: #FFCC00;
     color: #0A235C;
+    
+    { cursor: pointer; }
 }
 
 
-`;
-
-export const divContainer = styled.div`
-
-
-background: red;
-
+@media (max-width: 800px) {
+    
+}
 
 
 
 `;
+
+
 
 
 
