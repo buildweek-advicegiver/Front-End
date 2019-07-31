@@ -10,10 +10,18 @@ const EditPosts = props => {
     post: post,
     id: id
   });
+
   const [editing, setEditing] = useState(false);
+
+  const [deleting, setDeleting] = useState(false);
 
   const handleEdit = e => {
     setEditing(!editing);
+  };
+
+  const handleDelete = e => {
+    setDeleting(!deleting);
+    props.remove(input)
   };
 
   const inputHandler = e => {;
@@ -70,6 +78,9 @@ const EditPosts = props => {
       <CardEditButton>
         <Button onClick={handleEdit}>Edit</Button>
       </CardEditButton>
+      <div>
+        <Button onClick={handleDelete}>Delete</Button>
+      </div>
     </Card>
   );
 };

@@ -15,7 +15,7 @@ const AddPosts = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-    //** */Add in axios post request when back-end's completed **//
+    //*Add in axios post request when back-end's completed*//
     props.add({ ...input, id: Math.random() });
     setInput({
         info:"",

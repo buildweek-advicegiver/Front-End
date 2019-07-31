@@ -11,16 +11,24 @@ function Posts () {
     setPosts([...posts.map(post => {
         if (post.id === updatedPost.id) {
             return updatedPost;
-        }
+        } else{
         return post;
-        })
+        }})
+    ]);
+    const remove = removePost =>
+    setPosts([...posts.filter(post => {
+        if (post.id === removePost.id) {
+            return false;
+        } else{
+        return true;
+        }})
     ]);
     
-    return(
+    return (
         <FullDiv className="PostPage">
             <div>
                 {posts.map((post, i) => (
-                    <EditPosts post={post} key={i} update={update} />
+                    <EditPosts post={post} key={i} update={update} remove={remove} />
                 ))}
                 <AddPosts add={submitPost} />
             </div>

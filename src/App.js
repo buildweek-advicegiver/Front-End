@@ -15,11 +15,6 @@ function App () {
 
     <div className="App">
       <AppRouter />
-      
-      <h1> TESTING </h1>
-
-      <Login />
-
     </div>
 
     
