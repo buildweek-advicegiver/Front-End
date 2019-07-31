@@ -61,7 +61,7 @@ export const LoginImg = styled.img`
 display: block;
 margin-left: auto;
 margin-right: auto;
-width: 90rem;
+width: 89rem;
 height: 46.8rem;
 
 @media (max-width: 800px) {
