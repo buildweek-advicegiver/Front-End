@@ -5,7 +5,7 @@ const AddPosts = props => {
   const [input, setInput] = useState({
     info:"",
     title: "",
-    post: "",
+    description: "",
     id: null
   });
 
@@ -20,7 +20,7 @@ const AddPosts = props => {
     setInput({
         info:"",
         title: "",
-        post: "",
+        description: "",
         id: null
     });
   };
@@ -40,16 +40,16 @@ const AddPosts = props => {
           />
       </div>
       <div>
-        <label htmlFor="Post">
-          Post:{" "}
+        <label htmlFor="Description">
+          Description:{" "}
         </label>
           <textarea
             rows="10" 
             cols="30"
             type="text"
-            value={input.post}
+            value={input.description}
             onChange={inputHandler}
-            info="post"
+            info="description"
           />
       </div>
       <button>Submit Question</button>

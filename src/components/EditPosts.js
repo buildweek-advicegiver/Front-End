@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Card, CardTitle, CardPost, CardEditButton, Button, Label, Form } from "./StyledPosts";
 
 const EditPosts = props => {
-  const { title, post, id } = props.post;
+  const { title, description, id } = props.post;
 
   const [input, setInput] = useState({
     info:"",
     title: title,
-    post: post,
+    description: description,
     id: id
   });
 
@@ -51,15 +51,15 @@ const EditPosts = props => {
           />
       </div>
       <div>
-        <label htmlFor="Post">
-          Post:{" "}
+        <label htmlFor="Description">
+          Description:{" "}
           <textarea
             rows="10" 
             cols="30"
             type="text"
-            value={input.post}
+            value={input.description}
             onChange={inputHandler}
-            info="post"
+            info="description"
           />
         </label>
       </div>
@@ -72,8 +72,8 @@ const EditPosts = props => {
           <p>{title}</p>
       </CardTitle>
       <CardPost>
-        <h3>Post</h3>
-          <p>{post}</p>
+        <h3>Description</h3>
+          <p>{description}</p>
       </CardPost>
       <CardEditButton>
         <Button onClick={handleEdit}>Edit</Button>
