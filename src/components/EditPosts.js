@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { Card, CardTitle, CardPost, CardEditButton, Button, Label, Form } from "./StyledPosts";
 
 const EditPosts = props => {
-  const { title, description, category, id } = props.post;
+  const { title, description, posttype } = props.post;
 
-  const [input, setInput] = useState({
-    title: "",
-    description: "",
-    posttype: "",
-  });
+  const [input, setInput] = useState(
+    props.post
+  );
 
   const [editing, setEditing] = useState(false);
 
@@ -24,7 +22,7 @@ const EditPosts = props => {
   };
 
   const inputHandler = e => {;
-    setInput({ ...input, [e.target.getAttribute('info')]: e.target.value });
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const handleUpdate = e => {
@@ -43,19 +41,21 @@ const EditPosts = props => {
         </Label>
           <input
             placeholder="Title"
+            name="title"
             type="text"
             value={input.title}
             onChange={inputHandler}
           />
       </div>
       <div>
-        <Label htmlFor="category">
+        <Label htmlFor="posttype">
           Category:{" "}
         </Label>
           <select 
+            name="posttype"
             type="" 
             onChange={inputHandler} 
-            value={input.category} required>
+            value={input.posttype} required>
               <option value="">Select Category</option>
               <option value="Mental Health">Mental Health</option>
               <option value="Relationship">Relationship</option>
@@ -72,7 +72,7 @@ const EditPosts = props => {
             type="text"
             value={input.description}
             onChange={inputHandler}
-            info="description"
+            name="description"
           />
         </label>
       </div>
@@ -86,7 +86,7 @@ const EditPosts = props => {
       </CardTitle>
       <div>
         <h4>Category</h4>
-          <p>{category}</p>
+          <p>{posttype}</p>
       </div>
       <CardPost>
         <h3>Description</h3>
