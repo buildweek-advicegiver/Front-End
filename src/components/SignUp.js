@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Sign, Context, SignupBtn, Header } from "./StyledWidgets";
+import axios from "axios";
 
 ////ALEXIS'S SIGN-UP FORM WORK
 
@@ -14,9 +15,22 @@ export default function SignUp(props) {
         setUser(updatedUser);
     }
 
-    function handleSubmit(event) {
-        event.preventDefault();
+    function handleSubmit(e) {
+        e.preventDefault();
         //** */Add in axios post request when back-end's completed **//
+        axios.post('https://theadvice-giver.herokuapp.com/signup')
+        
+        //handle success
+        .then(res => {
+
+           console.log(res);
+        })
+
+        //handle error
+        .catch(err => console.dir(err));
+      
+          e.preventDefault();
+      
         console.log('user state', user);
     }
 
