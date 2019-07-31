@@ -7,9 +7,9 @@ export const Sign = styled.div`
     border: 2px solid #E3E1E1;
     border-radius: 12px;
     box-shadow: 5px 5px 8px #BFBFBF;
-    width: 20%;
+    width: 30%;
     align-items: center;
-    height: 400px;
+    height: 700px;
     display: flex;
     justify-content: center;
 `;
@@ -27,7 +27,6 @@ export const Context = styled.div`
         margin-bottom: 15px;
         margin-left: 10px;
         label {
-            
             margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
