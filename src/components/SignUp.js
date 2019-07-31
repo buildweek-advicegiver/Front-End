@@ -18,9 +18,8 @@ export default function SignUp(props) {
     function handleSubmit(e) {
         e.preventDefault();
         //** */Add in axios post request when back-end's completed **//
-        axios.post('https://theadvice-giver.herokuapp.com/signup', {headers: {
-            'Content-Type': 'application/json'
-          }})
+        axios.post('https://theadvice-giver.herokuapp.com/signup', user)
+          
         
         //handle success
         .then(res => {
