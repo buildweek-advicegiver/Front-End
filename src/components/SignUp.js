@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default function SignUp(props) {
     console.log(props);
-    const [user, setUser] = useState({firstname: '', lastname: '', username:'', email: '', password: ''});
+    const [user, setUser] = useState({firstname: '', lastname: '', username:'', email: '', password: '', gender: '', age: ''});
 
     function handleChange(event) {
         const updatedUser = {...user, [event.target.name]: event.target.value};
@@ -41,7 +41,7 @@ export default function SignUp(props) {
 //         ))} 
 
     return (
-
+    
         <Sign>
             <form onSubmit={handleSubmit}>
                 <Context>
@@ -105,6 +105,56 @@ export default function SignUp(props) {
                                 value={user.password}
                             />
                     </div>
+                    <div className="form-group">
+                        <label>Gender: </label>
+                            <label>
+                                <input 
+                                type="radio" 
+                                name= "gender" 
+                                className= "form-group" 
+                                onChange={handleChange} 
+                                value="male" 
+                                checked={true} />
+                                 Male
+                            </label>
+                    </div>
+                    <div className="form-group">
+                        <label>
+                            <input 
+                                type="radio" 
+                                name= "gender"
+                                className= "form-group"
+                                onChange= {handleChange}
+                                value="female" 
+                                />
+                                Female
+                        </label>
+                    </div>
+                    <div className="form-group">
+                        <label>
+                            <input 
+                                type="radio" 
+                                name= "gender"
+                                className= "form-group"
+                                onChange= {handleChange}
+                                value="other" 
+                                />
+                                Other
+                        </label>
+                    </div>
+
+                    <div className= "form-group">
+                        <label>Age:</label>
+                            <input
+                                type= "age"
+                                name= "age"
+                                className= "form-group"
+                                onChange= {handleChange}
+                                value= {user.age}
+                            />
+                    </div> 
+                            
+                    
 
                     <SignupBtn className="btn btn-primary">Submit</SignupBtn>
 
@@ -113,6 +163,6 @@ export default function SignUp(props) {
             </form>
 
         </Sign>
-           
+     
     );
 }
