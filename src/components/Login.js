@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
+
 import { LoginBtn, LoginImg } from "./StyledWidgets";
 
-import axios from 'axios';
 
+import axios from 'axios';
 
 // Kelly
 
@@ -30,6 +31,7 @@ export default function Login(props) {
         event.preventDefault();
         
         console.log('member state', member);
+
 
         axios.post('https://theadvice-giver.herokuapp.com/login', `grant_type=password&username=${member.username}&password=${member.password}`, {
      headers: {
@@ -59,6 +61,7 @@ export default function Login(props) {
         <form onSubmit={handleSubmit} >
 
             <divContainer>
+
                 
                 
                 <label> Username </label>
@@ -67,7 +70,9 @@ export default function Login(props) {
                 />
                 
                 <label> Password </label>
+
                 <input type='password' name='password' placeholder='Password' onChange={handleChange}
+
                 value={member.password}
                 />
                 <LoginBtn type="submit">Login</LoginBtn>
