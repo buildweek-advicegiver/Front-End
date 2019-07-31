@@ -24,7 +24,7 @@ function Posts () {
         return true;
         }})
     ]);
-    
+
     return (
         <FullDiv className="PostPage">
             <div>

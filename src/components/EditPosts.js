@@ -5,11 +5,9 @@ const EditPosts = props => {
   const { title, description, category, id } = props.post;
 
   const [input, setInput] = useState({
-    info:"",
-    title: title,
-    description: description,
-    category:category,
-    id: id
+    title: "",
+    description: "",
+    posttype: "",
   });
 
   const [editing, setEditing] = useState(false);
@@ -48,7 +46,6 @@ const EditPosts = props => {
             type="text"
             value={input.title}
             onChange={inputHandler}
-            info="title"
           />
       </div>
       <div>
@@ -56,7 +53,6 @@ const EditPosts = props => {
           Category:{" "}
         </Label>
           <select 
-            info="category" 
             type="" 
             onChange={inputHandler} 
             value={input.category} required>

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Form } from "./StyledPosts";
+import axios from "axios";
 
 const AddPosts = props => {
   const [input, setInput] = useState({
-    info:"",
     title: "",
     description: "",
-    category: "",
-    id: null
+    posttype: "",
   });
 
   const inputHandler = e => {
@@ -17,13 +16,13 @@ const AddPosts = props => {
   const submitHandler = e => {
     e.preventDefault();
     //*Add in axios post request when back-end's completed*//
-    props.add({ ...input, id: Math.random() });
+    axios.post('https://theadvice-giver.herokuapp.com/post/add', input)
+
+    props.add({ ...input});
     setInput({
-        info:"",
         title: "",
         description: "",
-        category: "",
-        id: null
+        posttype: "",
     });
   };
 
@@ -38,7 +37,6 @@ const AddPosts = props => {
             type="text"
             value={input.title}
             onChange={inputHandler}
-            info="title"
           />
       </div>
       <div>
@@ -46,10 +44,9 @@ const AddPosts = props => {
           Category:{" "}
         </label>
         <select 
-          info="category" 
           type="" 
           onChange={inputHandler} 
-          value={input.category} required>
+          value={input.posttype} required>
             <option value="">Select Category</option>
             <option value="Mental Health">Mental Health</option>
             <option value="Relationship">Relationship</option>

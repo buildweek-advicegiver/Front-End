@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 // import { Link } from "react-router-dom";
 import SignUp from './SignUp';
 import Posts from './Posts';
+import Login from './Login.js'
 
 
 export default function AppRouter() {
