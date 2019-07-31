@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { LoginBtn, LoginImg, divContainer } from "./StyledWidgets";
+import { LoginBtn, LoginImg } from "./StyledWidgets";
 
 
 
@@ -72,5 +72,5 @@ export default function Login(props) {
 
 
 
-
+// test 
 // Kelly Moreira
