@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Card, CardTitle, CardPost, CardEditButton, Button, Label, Form } from "./StyledPosts";
 
 const EditPosts = props => {
-  const { title, description, id } = props.post;
+  const { title, description, category, id } = props.post;
 
   const [input, setInput] = useState({
     info:"",
     title: title,
     description: description,
+    category:category,
     id: id
   });
 
@@ -51,6 +52,22 @@ const EditPosts = props => {
           />
       </div>
       <div>
+        <Label htmlFor="category">
+          Category:{" "}
+        </Label>
+          <select 
+            info="category" 
+            type="" 
+            onChange={inputHandler} 
+            value={input.category} required>
+              <option value="">Select Category</option>
+              <option value="mental health">Mental Health</option>
+              <option value="relationship">Relationship</option>
+              <option value="career">Career</option>
+              <option value="misc">Misc.</option>
+            </select>
+      </div>
+      <div>
         <label htmlFor="Description">
           Description:{" "}
           <textarea
@@ -71,6 +88,10 @@ const EditPosts = props => {
         <h3>Title</h3>
           <p>{title}</p>
       </CardTitle>
+      <div>
+        <h4>Category</h4>
+          <p>{category}</p>
+      </div>
       <CardPost>
         <h3>Description</h3>
           <p>{description}</p>

@@ -6,6 +6,7 @@ const AddPosts = props => {
     info:"",
     title: "",
     description: "",
+    category: "",
     id: null
   });
 
@@ -21,6 +22,7 @@ const AddPosts = props => {
         info:"",
         title: "",
         description: "",
+        category: "",
         id: null
     });
   };
@@ -31,13 +33,29 @@ const AddPosts = props => {
       <div>
         <label htmlFor="Name">
           Title:{" "}
-          </label>
+        </label>
         <input
             type="text"
             value={input.title}
             onChange={inputHandler}
             info="title"
           />
+      </div>
+      <div>
+        <label>
+          Category:{" "}
+        </label>
+        <select 
+          info="category" 
+          type="" 
+          onChange={inputHandler} 
+          value={input.category} required>
+            <option value="">Select Category</option>
+            <option value="Mental Health">Mental Health</option>
+            <option value="Relationship">Relationship</option>
+            <option value="Career">Career</option>
+            <option value="Misc">Misc.</option>
+        </select>
       </div>
       <div>
         <label htmlFor="Description">
