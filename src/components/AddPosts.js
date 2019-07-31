@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Form } from "./StyledPosts";
+import axios from "axios";
 
 const AddPosts = props => {
   const [input, setInput] = useState({
-    info:"",
     title: "",
-    post: "",
-    id: null
+    description: "",
+    posttype: "",
   });
 
   const inputHandler = e => {
@@ -15,13 +15,14 @@ const AddPosts = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-    //** */Add in axios post request when back-end's completed **//
-    props.add({ ...input, id: Math.random() });
+    //*Add in axios post request when back-end's completed*//
+    axios.post('https://theadvice-giver.herokuapp.com/post/add', input)
+
+    props.add({ ...input});
     setInput({
-        info:"",
         title: "",
-        post: "",
-        id: null
+        description: "",
+        posttype: "",
     });
   };
 
@@ -31,25 +32,39 @@ const AddPosts = props => {
       <div>
         <label htmlFor="Name">
           Title:{" "}
-          </label>
+        </label>
         <input
             type="text"
             value={input.title}
             onChange={inputHandler}
-            info="title"
           />
       </div>
       <div>
-        <label htmlFor="Post">
-          Post:{" "}
+        <label>
+          Category:{" "}
+        </label>
+        <select 
+          type="" 
+          onChange={inputHandler} 
+          value={input.posttype} required>
+            <option value="">Select Category</option>
+            <option value="Mental Health">Mental Health</option>
+            <option value="Relationship">Relationship</option>
+            <option value="Career">Career</option>
+            <option value="Misc">Misc.</option>
+        </select>
+      </div>
+      <div>
+        <label htmlFor="Description">
+          Description:{" "}
         </label>
           <textarea
             rows="10" 
             cols="30"
             type="text"
-            value={input.post}
+            value={input.description}
             onChange={inputHandler}
-            info="post"
+            info="description"
           />
       </div>
       <button>Submit Question</button>

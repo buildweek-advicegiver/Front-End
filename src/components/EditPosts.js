@@ -2,18 +2,25 @@ import React, { useState } from "react";
 import { Card, CardTitle, CardPost, CardEditButton, Button, Label, Form } from "./StyledPosts";
 
 const EditPosts = props => {
-  const { title, post, id } = props.post;
+  const { title, description, category, id } = props.post;
 
   const [input, setInput] = useState({
-    info:"",
-    title: title,
-    post: post,
-    id: id
+    title: "",
+    description: "",
+    posttype: "",
   });
+
   const [editing, setEditing] = useState(false);
+
+  const [deleting, setDeleting] = useState(false);
 
   const handleEdit = e => {
     setEditing(!editing);
+  };
+
+  const handleDelete = e => {
+    setDeleting(!deleting);
+    props.remove(input)
   };
 
   const inputHandler = e => {;
@@ -39,19 +46,33 @@ const EditPosts = props => {
             type="text"
             value={input.title}
             onChange={inputHandler}
-            info="title"
           />
       </div>
       <div>
-        <label htmlFor="Post">
-          Post:{" "}
+        <Label htmlFor="category">
+          Category:{" "}
+        </Label>
+          <select 
+            type="" 
+            onChange={inputHandler} 
+            value={input.category} required>
+              <option value="">Select Category</option>
+              <option value="Mental Health">Mental Health</option>
+              <option value="Relationship">Relationship</option>
+              <option value="Career">Career</option>
+              <option value="Misc">Misc.</option>
+            </select>
+      </div>
+      <div>
+        <label htmlFor="Description">
+          Description:{" "}
           <textarea
             rows="10" 
             cols="30"
             type="text"
-            value={input.post}
+            value={input.description}
             onChange={inputHandler}
-            info="post"
+            info="description"
           />
         </label>
       </div>
@@ -63,13 +84,20 @@ const EditPosts = props => {
         <h3>Title</h3>
           <p>{title}</p>
       </CardTitle>
+      <div>
+        <h4>Category</h4>
+          <p>{category}</p>
+      </div>
       <CardPost>
-        <h3>Post</h3>
-          <p>{post}</p>
+        <h3>Description</h3>
+          <p>{description}</p>
       </CardPost>
       <CardEditButton>
         <Button onClick={handleEdit}>Edit</Button>
       </CardEditButton>
+      <div>
+        <Button onClick={handleDelete}>Delete</Button>
+      </div>
     </Card>
   );
 };
