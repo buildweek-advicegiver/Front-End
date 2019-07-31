@@ -10,20 +10,22 @@ const AddPosts = props => {
   });
 
   const inputHandler = e => {
-    setInput({ ...input, [e.target.getAttribute('info')]: e.target.value });
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const submitHandler = e => {
     e.preventDefault();
     //*Add in axios post request when back-end's completed*//
-    axios.post('https://theadvice-giver.herokuapp.com/post/add', input)
+    axios.post('https://theadvice-giver.herokuapp.com/post/add', {headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`}
+    });
 
     props.add({ ...input});
-    setInput({
-        title: "",
-        description: "",
-        posttype: "",
-    });
+      setInput({
+          title: "",
+          description: "",
+          posttype: "",
+      });
   };
 
   return (
@@ -37,6 +39,7 @@ const AddPosts = props => {
             type="text"
             value={input.title}
             onChange={inputHandler}
+            name="title"
           />
       </div>
       <div>
@@ -44,9 +47,10 @@ const AddPosts = props => {
           Category:{" "}
         </label>
         <select 
+          name="posttype"
           type="" 
           onChange={inputHandler} 
-          value={input.posttype} required>
+          value={input.posttype} >
             <option value="">Select Category</option>
             <option value="Mental Health">Mental Health</option>
             <option value="Relationship">Relationship</option>
@@ -61,10 +65,10 @@ const AddPosts = props => {
           <textarea
             rows="10" 
             cols="30"
+            name="description"
             type="text"
             value={input.description}
             onChange={inputHandler}
-            info="description"
           />
       </div>
       <button>Submit Question</button>
