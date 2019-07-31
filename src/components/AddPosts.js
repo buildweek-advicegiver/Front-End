@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form } from "./StyledPosts";
 
 const AddPosts = props => {
   const [input, setInput] = useState({
@@ -14,6 +15,7 @@ const AddPosts = props => {
 
   const submitHandler = e => {
     e.preventDefault();
+    //** */Add in axios post request when back-end's completed **//
     props.add({ ...input, id: Math.random() });
     setInput({
         info:"",
@@ -24,20 +26,23 @@ const AddPosts = props => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <h1>Add Question</h1>
+    <Form onSubmit={submitHandler}>
+      <h2>Ask A Question</h2>
       <div>
         <label htmlFor="Name">
           Title:{" "}
-          <input
+          </label>
+        <input
             type="text"
             value={input.title}
             onChange={inputHandler}
             info="title"
           />
-        </label>
+      </div>
+      <div>
         <label htmlFor="Post">
           Post:{" "}
+        </label>
           <textarea
             rows="10" 
             cols="30"
@@ -46,10 +51,9 @@ const AddPosts = props => {
             onChange={inputHandler}
             info="post"
           />
-        </label>
       </div>
       <button>Submit Question</button>
-    </form>
+    </Form>
   );
 };
 
