@@ -18,7 +18,7 @@ function App () {
       
       <h1> TESTING </h1>
 
-      <Login />
+      {/* <Login /> */}
 
     </div>
 
