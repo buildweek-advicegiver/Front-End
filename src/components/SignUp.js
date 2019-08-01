@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Sign, Context, SignupBtn, Header } from "./StyledWidgets";
+import { Sign, Context, SignupBtn, Header, Gender } from "./StyledWidgets";
 import axios from "axios";
 
 ////ALEXIS'S SIGN-UP FORM WORK
@@ -106,44 +106,45 @@ export default function SignUp(props) {
                                 value={user.password}
                             />
                     </div>
-                    <div className="form-group">
-                        <label>Gender: </label>
+                    <Gender>
+                        <div className="form-group">
+                            <label> Gender: </label>
+                                <label>
+                                    <input 
+                                    type="radio" 
+                                    name= "gender" 
+                                    className= "form-group" 
+                                    onChange={handleChange} 
+                                    value="male" 
+                                    />
+                                    Male
+                                </label>
+                        </div>
+                        <div className="form-group">
                             <label>
                                 <input 
-                                type="radio" 
-                                name= "gender" 
-                                className= "form-group" 
-                                onChange={handleChange} 
-                                value="male" 
-                                />
-                                 Male
+                                    type="radio" 
+                                    name= "gender"
+                                    className= "form-group"
+                                    onChange= {handleChange}
+                                    value="female" 
+                                    />
+                                    Female
                             </label>
-                    </div>
-                    <div className="form-group">
-                        <label>
-                            <input 
-                                type="radio" 
-                                name= "gender"
-                                className= "form-group"
-                                onChange= {handleChange}
-                                value="female" 
-                                />
-                                Female
-                        </label>
-                    </div>
-                    <div className="form-group">
-                        <label>
-                            <input 
-                                type="radio" 
-                                name= "gender"
-                                className= "form-group"
-                                onChange= {handleChange}
-                                value="other" 
-                                />
-                                Other
-                        </label>
-                    </div>
-
+                        </div>
+                        <div className="form-group">
+                            <label>
+                                <input 
+                                    type="radio" 
+                                    name= "gender"
+                                    className= "form-group"
+                                    onChange= {handleChange}
+                                    value="other" 
+                                    />
+                                    Other
+                            </label>
+                        </div>
+                    </Gender>
                     <div className= "form-group">
                         <label>Age:</label>
                             <input
