@@ -2,12 +2,18 @@
 import React, { useState } from 'react'
 import EditPosts from "./EditPosts.js";
 import AddPosts from "./AddPosts.js";
+import axios from "axios";
 import { FullDiv } from "./StyledPosts";
 
 function Posts () {
     const [posts, setPosts] = useState([]);
 
-    const submitPost = post => setPosts([...posts, post]);
+    const submitPost = post => {
+        setPosts([...posts, post]);
+        axios.post('https://theadvice-giver.herokuapp.com/post/add', {headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`}
+        });
+    }
     const update = updatedPost =>
     setPosts([...posts.map(post => {
         if (post.id === updatedPost.id) {

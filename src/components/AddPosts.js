@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Form } from "./StyledPosts";
-import axios from "axios";
 
 const AddPosts = props => {
   const [input, setInput] = useState({
@@ -15,10 +14,6 @@ const AddPosts = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-    //*Add in axios post request when back-end's completed*//
-    axios.post('https://theadvice-giver.herokuapp.com/post/add', {headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`}
-    });
 
     props.add({ ...input});
       setInput({
