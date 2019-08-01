@@ -5,13 +5,14 @@ export const Card = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-left: 2em;
-  margin-right: 2em;
+  margin-left: 7em;
+  margin-right: 7em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   padding: 0.5em;
   background-color: #f5f5f5;
   height: auto;
+  width: 50%;
 `;
 
 export const CardTitle = styled.div`
@@ -46,6 +47,7 @@ export const FullDiv = styled.div`
   width: auto;
   background-color:	#0A235C;
   padding: 2em;
+  height: ${window.innerHeight}px;
 `;
 
 //Styling for AddPosts.js
@@ -53,11 +55,11 @@ export const Form = styled.form`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 7em;
+    margin-right: 7em;
     padding: 0.5em;
     background-color: #f5f5f5;
-    height: 20em;
+    height: auto;
 `;
 
 //Styling by Mariam Farrukh for Posts Components

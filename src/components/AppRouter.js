@@ -4,7 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 // import { Link } from "react-router-dom";
 import SignUp from './SignUp';
 import Posts from './Posts';
-import Login from './Login.js'
+import Login from './Login.js';
+import FeedA from './FeedA.js';
 
 
 export default function AppRouter() {
@@ -16,6 +17,7 @@ export default function AppRouter() {
           <Route path='/signup' component={SignUp} />
           <Route path='/posts' component={Posts} />
           <Route path = '/login' component = {Login}/>
+          <Route path = '/feeda' component = {FeedA}/>
           
           {/* <Route component={WelcomePage} /> */}
         

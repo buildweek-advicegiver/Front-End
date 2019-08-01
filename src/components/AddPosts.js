@@ -6,6 +6,7 @@ const AddPosts = props => {
     title: "",
     description: "",
     posttype: "",
+    postid:""
   });
 
   const inputHandler = e => {
@@ -15,11 +16,12 @@ const AddPosts = props => {
   const submitHandler = e => {
     e.preventDefault();
 
-    props.add({ ...input});
+    props.add(input);
       setInput({
           title: "",
           description: "",
           posttype: "",
+          postid: ""
       });
   };
 
