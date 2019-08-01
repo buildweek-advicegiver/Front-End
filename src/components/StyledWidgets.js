@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 //Alexis
 export const Sign = styled.div`
-    font-size: 12px;
     margin: 0 auto;
     margin-top: 40px;
-    border: 2px solid lightgrey;
-    width: 20%;
+    border: 2px solid #E3E1E1;
+    border-radius: 12px;
+    box-shadow: 5px 5px 8px #BFBFBF;
+    width: 30%;
     align-items: center;
-    height: 200px;
+    height: 700px;
     display: flex;
     justify-content: center;
 `;
@@ -17,20 +18,57 @@ export const Context = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: grey;
+    font-size: 16px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     .form-group {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 15px;
+        margin-left: 10px;
         label {
-            margin-right: 5px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
         }
     }
 `;
 
-export const SignupBtn = styled.button`
-    color: blue;
+export const Gender = styled.div`
+   
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        
+    }
+    label {
+        display: flex;
+        justify-content: space-evenly;
+        margin-right: 70px;
+        margin-left: 20px;
+        margin-top: 2px;
+    }
 `;
 
+
+export const SignupBtn = styled.button`
+    background-color: #0A235C;
+    color: #FFCC00;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 8px 8px;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 20px;
+`;
+
+export const Header = styled.h2`
+    font-size: 18px;
+    color: #0A235C;
+    text-align: center;
+`;
 
 
 //Kelly
@@ -40,7 +78,19 @@ export const LoginImg = styled.img`
 display: block;
 margin-left: auto;
 margin-right: auto;
-width: 88.5rem;
+width: 89rem;
+height: 46.8rem;
+
+@media (max-width: 800px) {
+
+   
+    
+  }
+
+  @media (max-width: 500px) {
+    display: none;
+}
+
 
 
 `;
@@ -59,20 +109,20 @@ font-size: 1rem;
 &:hover {
     background: #FFCC00;
     color: #0A235C;
+    
+    { cursor: pointer; }
 }
 
 
-`;
-
-export const divContainer = styled.div`
-
-
-background: red;
-
+@media (max-width: 800px) {
+    
+}
 
 
 
 `;
+
+
 
 
 

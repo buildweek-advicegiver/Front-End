@@ -1,65 +1,104 @@
 import React, { useState } from "react";
+import { Card, CardTitle, CardPost, CardEditButton, Button, Label, Form } from "./StyledPosts";
 
 const EditPosts = props => {
-  const { title, post, id } = props.post;
+  const { title, description, posttype } = props.post;
 
-  const [input, setInput] = useState({
-    info:"",
-    title: title,
-    post: post,
-    id: id
-  });
+  const [input, setInput] = useState(
+    props.post
+  );
+
   const [editing, setEditing] = useState(false);
+
+  const [deleting, setDeleting] = useState(false);
 
   const handleEdit = e => {
     setEditing(!editing);
   };
 
+  const handleDelete = e => {
+    setDeleting(!deleting);
+    props.remove(input)
+  };
+
   const inputHandler = e => {;
-    setInput({ ...input, [e.target.getAttribute('info')]: e.target.value });
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const handleUpdate = e => {
     e.preventDefault();
+    //** */Add in axios post request when back-end's completed **//
     props.update(input);
     setEditing(false);
   };
 
   return editing ? (
-    <form onSubmit={handleUpdate}>
-      <h1>Add Question</h1>
+    <Form onSubmit={handleUpdate}>
+      <h2>Edit Question</h2>
       <div>
-        <label htmlFor="Title">
+        <Label htmlFor="Title">
           Title:{" "}
+        </Label>
           <input
+            placeholder="Title"
+            name="title"
             type="text"
             value={input.title}
             onChange={inputHandler}
-            info="title"
           />
-        </label>
-        <label htmlFor="Post">
-          Post:{" "}
+      </div>
+      <div>
+        <Label htmlFor="posttype">
+          Category:{" "}
+        </Label>
+          <select 
+            name="posttype"
+            type="" 
+            onChange={inputHandler} 
+            value={input.posttype} required>
+              <option value="">Select Category</option>
+              <option value="Mental Health">Mental Health</option>
+              <option value="Relationship">Relationship</option>
+              <option value="Career">Career</option>
+              <option value="Misc">Misc.</option>
+            </select>
+      </div>
+      <div>
+        <label htmlFor="Description">
+          Description:{" "}
           <textarea
             rows="10" 
             cols="30"
             type="text"
-            value={input.post}
+            value={input.description}
             onChange={inputHandler}
-            info="post"
+            name="description"
           />
         </label>
       </div>
       <button>Submit Question</button>
-    </form>
+    </Form>
   ) : (
-    <div>
-      <h3>Title</h3>
-      <p>{title}</p>
-      <h3>Post</h3>
-      <p>{post}</p>
-      <button onClick={handleEdit}>Edit</button>
-    </div>
+    <Card>
+      <CardTitle>
+        <h3>Title</h3>
+          <p>{title}</p>
+      </CardTitle>
+      <div>
+        <h4>Category</h4>
+          <p>{posttype}</p>
+      </div>
+      <CardPost>
+        <h3>Description</h3>
+          <p>{description}</p>
+      </CardPost>
+      <CardEditButton>
+        <Button onClick={handleEdit}>Edit</Button>
+      </CardEditButton>
+      <div>
+        <Button onClick={handleDelete}>Delete</Button>
+      </div>
+    </Card>
   );
 };
 

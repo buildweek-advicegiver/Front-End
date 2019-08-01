@@ -1,55 +1,78 @@
 import React, { useState } from "react";
+import { Form } from "./StyledPosts";
+import axios from "axios";
 
 const AddPosts = props => {
   const [input, setInput] = useState({
-    info:"",
     title: "",
-    post: "",
-    id: null
+    description: "",
+    posttype: "",
   });
 
   const inputHandler = e => {
-    setInput({ ...input, [e.target.getAttribute('info')]: e.target.value });
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const submitHandler = e => {
     e.preventDefault();
-    props.add({ ...input, id: Math.random() });
-    setInput({
-        info:"",
-        title: "",
-        post: "",
-        id: null
+    //*Add in axios post request when back-end's completed*//
+    axios.post('https://theadvice-giver.herokuapp.com/post/add', {headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`}
     });
+
+    props.add({ ...input});
+      setInput({
+          title: "",
+          description: "",
+          posttype: "",
+      });
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <h1>Add Question</h1>
+    <Form onSubmit={submitHandler}>
+      <h2>Ask A Question</h2>
       <div>
         <label htmlFor="Name">
           Title:{" "}
-          <input
+        </label>
+        <input
             type="text"
             value={input.title}
             onChange={inputHandler}
-            info="title"
+            name="title"
           />
+      </div>
+      <div>
+        <label>
+          Category:{" "}
         </label>
-        <label htmlFor="Post">
-          Post:{" "}
+        <select 
+          name="posttype"
+          type="" 
+          onChange={inputHandler} 
+          value={input.posttype} >
+            <option value="">Select Category</option>
+            <option value="Mental Health">Mental Health</option>
+            <option value="Relationship">Relationship</option>
+            <option value="Career">Career</option>
+            <option value="Misc">Misc.</option>
+        </select>
+      </div>
+      <div>
+        <label htmlFor="Description">
+          Description:{" "}
+        </label>
           <textarea
             rows="10" 
             cols="30"
+            name="description"
             type="text"
-            value={input.post}
+            value={input.description}
             onChange={inputHandler}
-            info="post"
           />
-        </label>
       </div>
       <button>Submit Question</button>
-    </form>
+    </Form>
   );
 };
 
