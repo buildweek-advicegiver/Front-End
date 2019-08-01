@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import { LoginBtn, LoginImg, divContainer } from "./StyledWidgets";
 
 
+import { LoginBtn, LoginImg } from "./StyledWidgets";
 
 
+import axios from 'axios';
 
-
-
+// Kelly
 
 
 export default function Login(props) {
@@ -19,22 +18,38 @@ export default function Login(props) {
 
 
     function handleChange(event) {
-        setMember(event.target.value);
+
+        const updateMember = {...member, [event.target.name]: event.target.value};
+
+
+        setMember(updateMember);
+
+        console.log(event.target.value);
     };
 
     function handleSubmit(event) {
         event.preventDefault();
         
         console.log('member state', member);
+
+
+        axios.post('https://theadvice-giver.herokuapp.com/login', `grant_type=password&username=${member.username}&password=${member.password}`, {
+     headers: {
+       // btoa is converting our client id/client secret into base64
+       Authorization: `Basic ${btoa('ferko:ferko')}`,
+       'Content-Type': 'application/x-www-form-urlencoded'
+     }
+   })
+     .then(res => {
+         console.log(res, 'working!');
+         
+       localStorage.setItem('token', res.data.access_token);
+    //    this.props.history.push('/users');
+     })
+     .catch(err => console.dir(err));
+
+
     }
-
-
-
-
-
-
-
-
 
 
 // Returns
@@ -46,15 +61,18 @@ export default function Login(props) {
         <form onSubmit={handleSubmit} >
 
             <divContainer>
+
                 
                 
                 <label> Username </label>
-                <input type='username' placeholder='Username' onChange={handleChange}
+                <input type='text' name='username' placeholder='Username' onChange={handleChange}
                 value={member.username}
                 />
                 
                 <label> Password </label>
-                <input type='password' placeholder='Password' onChange={handleChange}
+
+                <input type='password' name='password' placeholder='Password' onChange={handleChange}
+
                 value={member.password}
                 />
                 <LoginBtn type="submit">Login</LoginBtn>
@@ -71,6 +89,3 @@ export default function Login(props) {
 }
 
 
-
-
-// Kelly Moreira
