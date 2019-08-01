@@ -8,10 +8,11 @@ function Posts () {
     const [posts, setPosts] = useState('');
 
     useEffect(() => {
-    axios.get('https://theadvice-giver.herokuapp.com/post/feed')
+    axios.get('https://theadvice-giver.herokuapp.com/post/feed', {headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then(res => res.json())
         .then(res => {
-            setPosts(res.data)
+            // setPosts(res.data)
             console.log(res);
         })
         .catch(err => {
