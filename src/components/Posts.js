@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import EditPosts from "./EditPosts.js";
 import AddPosts from "./AddPosts.js";
@@ -8,11 +7,21 @@ import { FullDiv } from "./StyledPosts";
 function Posts () {
     const [posts, setPosts] = useState([]);
 
+
+        
+
+
     const submitPost = post => {
         setPosts([...posts, post]);
-        axios.post('https://theadvice-giver.herokuapp.com/post/add', {headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`}
-        });
+        axios.post('https://theadvice-giver.herokuapp.com/post/add', {post}, {headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            .then(res => {
+                setPosts(res.data)
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
     const update = updatedPost =>
     setPosts([...posts.map(post => {
@@ -45,3 +54,15 @@ function Posts () {
 
 export default Posts;
 //Mariam Farrukh
+
+// useEffect(() => {
+//     axios.post('https://theadvice-giver.herokuapp.com/post/add'), {headers: {
+//     Authorization: `Bearer ${localStorage.getItem('token')}`}}
+//         .then(res => {
+//             setPosts(res.data)
+//             console.log(res);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//         })
+// }), [];

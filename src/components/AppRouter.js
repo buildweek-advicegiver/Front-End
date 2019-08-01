@@ -15,6 +15,7 @@ export default function AppRouter() {
         
           <Route path='/signup' component={SignUp} />
           <Route path='/posts' component={Posts} />
+          <Route path = '/login' component = {Login}/>
           
           {/* <Route component={WelcomePage} /> */}
         
