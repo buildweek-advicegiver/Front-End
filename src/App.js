@@ -2,7 +2,6 @@ import React from 'react'
 import AppRouter from "./components/AppRouter";
 
 
-
 function App () {
 
   
@@ -11,9 +10,6 @@ function App () {
 
     <div className="App">
       <AppRouter />
-      
-
-      {/* <Login /> */}
 
     </div>
 

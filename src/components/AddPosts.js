@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Form } from "./StyledPosts";
-import axios from "axios";
+import { Form, Description, Textarea, Select, Input, SubmitButton, Label, QuestionHeader } from "./StyledPosts";
 
 const AddPosts = props => {
   const [input, setInput] = useState({
     title: "",
     description: "",
     posttype: "",
+    postid:""
   });
 
   const inputHandler = e => {
@@ -15,27 +15,24 @@ const AddPosts = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-    //*Add in axios post request when back-end's completed*//
-    axios.post('https://theadvice-giver.herokuapp.com/post/add', {headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`}
-    });
 
-    props.add({ ...input});
+    props.add(input);
       setInput({
           title: "",
           description: "",
           posttype: "",
+          postid: ""
       });
   };
 
   return (
     <Form onSubmit={submitHandler}>
-      <h2>Ask A Question</h2>
+      <QuestionHeader>Ask A Question</QuestionHeader>
       <div>
-        <label htmlFor="Name">
+        <Label htmlFor="Name">
           Title:{" "}
-        </label>
-        <input
+        </Label>
+        <Input
             type="text"
             value={input.title}
             onChange={inputHandler}
@@ -46,7 +43,7 @@ const AddPosts = props => {
         <label>
           Category:{" "}
         </label>
-        <select 
+        <Select 
           name="posttype"
           type="" 
           onChange={inputHandler} 
@@ -56,22 +53,21 @@ const AddPosts = props => {
             <option value="Relationship">Relationship</option>
             <option value="Career">Career</option>
             <option value="Misc">Misc.</option>
-        </select>
+        </Select>
       </div>
       <div>
-        <label htmlFor="Description">
-          Description:{" "}
-        </label>
-          <textarea
+        <Description>
+          <Textarea
             rows="10" 
-            cols="30"
+            cols="60"
             name="description"
             type="text"
             value={input.description}
             onChange={inputHandler}
           />
+        </Description>
       </div>
-      <button>Submit Question</button>
+      <SubmitButton>Submit Question</SubmitButton>
     </Form>
   );
 };

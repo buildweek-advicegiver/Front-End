@@ -27,7 +27,6 @@ const EditPosts = props => {
 
   const handleUpdate = e => {
     e.preventDefault();
-    //** */Add in axios post request when back-end's completed **//
     props.update(input);
     setEditing(false);
   };
@@ -104,3 +103,4 @@ const EditPosts = props => {
 
 export default EditPosts;
 //Mariam Farrukh
+//test
