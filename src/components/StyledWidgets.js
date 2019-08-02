@@ -34,6 +34,24 @@ export const Context = styled.div`
     }
 `;
 
+export const Gender = styled.div`
+   
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        
+    }
+    label {
+        display: flex;
+        justify-content: space-evenly;
+        margin-right: 70px;
+        margin-left: 20px;
+        margin-top: 2px;
+    }
+`;
+
+
 export const SignupBtn = styled.button`
     background-color: #0A235C;
     color: #FFCC00;

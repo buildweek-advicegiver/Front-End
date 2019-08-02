@@ -7,6 +7,19 @@ import { FullDiv } from "./StyledPosts";
 function Posts () {
     const [posts, setPosts] = useState('');
 
+    useEffect(() => {
+    axios.get('https://theadvice-giver.herokuapp.com/post/feed', {headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`}})
+        .then(res => res.json())
+        .then(res => {
+            // setPosts(res.data)
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }, []);
+
     const submitPost = post => {
         setPosts([...posts, post]);
         axios.post('https://theadvice-giver.herokuapp.com/post/add', post, {headers: {
@@ -18,7 +31,6 @@ function Posts () {
         .catch(err => {
             console.dir(err);
         })
-        
     }
 
     const update = updatedPost =>
@@ -56,3 +68,15 @@ function Posts () {
 
 export default Posts;
 //Mariam Farrukh
+
+// useEffect(() => {
+//     axios.post('https://theadvice-giver.herokuapp.com/post/add'), {headers: {
+//     Authorization: `Bearer ${localStorage.getItem('token')}`}}
+//         .then(res => {
+//             setPosts(res.data)
+//             console.log(res);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//         })
+// }), [];
