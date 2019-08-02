@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 
-<<<<<<< HEAD
-import { LoginBtn, LoginImg, Body} from "./StyledWidgets";
-=======
 
-import { LoginBtn, LoginImg } from "./StyledWidgets";
->>>>>>> 2c42d045d6c22f8e3e60ebaf998bc907e2335473
+import { LoginBtn, LoginImg, Body} from "./StyledWidgets";
+
 
 
 import axios from 'axios';
@@ -40,14 +37,7 @@ export default function Login(props) {
         console.log('member state', member);
 
 
-<<<<<<< HEAD
 
-
-
-        // Link to backend
-
-=======
->>>>>>> 2c42d045d6c22f8e3e60ebaf998bc907e2335473
         axios.post('https://theadvice-giver.herokuapp.com/login', `grant_type=password&username=${member.username}&password=${member.password}`, {
      headers: {
        // btoa is converting our client id/client secret into base64
@@ -76,7 +66,7 @@ export default function Login(props) {
     
     return(
 
-<<<<<<< HEAD
+
         <Body>
             <div className ="CoverImg">  
 
@@ -85,23 +75,16 @@ export default function Login(props) {
             <div className='LoginCenter'>  
 
                 <h3>Login to your account to begin using Advice for Life</h3>    
-=======
-            <divContainer>
 
-                
->>>>>>> 2c42d045d6c22f8e3e60ebaf998bc907e2335473
                 
                 <label > Username </label>
                 <input type='text' name='username' placeholder='Username' onChange={handleChange}
                 value={member.username}
                 />
                 
-<<<<<<< HEAD
-                <label > Password </label>
-=======
-                <label> Password </label>
 
->>>>>>> 2c42d045d6c22f8e3e60ebaf998bc907e2335473
+                <label > Password </label>
+
                 <input type='password' name='password' placeholder='Password' onChange={handleChange}
 
                 value={member.password}
