@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 
-import { LoginBtn, LoginImg } from "./StyledWidgets";
+import { LoginBtn, LoginImg, Body} from "./StyledWidgets";
 
 import axios from 'axios';
+
+
+
 
 
 // Kelly
@@ -31,6 +34,12 @@ export default function Login(props) {
         
         console.log('member state', member);
 
+
+
+
+
+        // Link to backend
+
         axios.post('https://theadvice-giver.herokuapp.com/login', `grant_type=password&username=${member.username}&password=${member.password}`, {
      headers: {
        // btoa is converting our client id/client secret into base64
@@ -50,36 +59,58 @@ export default function Login(props) {
     }
 
 
+    
+
+
 // Returns
 
 
     
     return(
-        
-        <form onSubmit={handleSubmit} >
 
-            <divContainer>
+        <Body>
+            <div className ="CoverImg">  
+
+        <form className='LoginForm' onSubmit={handleSubmit}  >         
+
+            <div className='LoginCenter'>  
+
+                <h3>Login to your account to begin using Advice for Life</h3>    
                 
-                
-                <label> Username </label>
+                <label > Username </label>
                 <input type='text' name='username' placeholder='Username' onChange={handleChange}
                 value={member.username}
                 />
                 
-                <label> Password </label>
+                <label > Password </label>
                 <input type='password' name='password' placeholder='Password' onChange={handleChange}
                 value={member.password}
                 />
-                <LoginBtn type="submit">Login</LoginBtn>
 
-                <div>
-                    <LoginImg src='https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2098&q=80'/>
-                </div>
+
+
+                {/* inline eventlistener */}
+                <LoginBtn type="submit" onClick={()=>{ alert('Welcome Back! We missed you!'); }}>Login</LoginBtn>            
+
+
+                
                 
 
-            </divContainer>
+            </div>
+            
 
         </form>
+
+        
+
+        </div>
+
+        </Body>
+
+
+        
+
+        
     )
 }
 

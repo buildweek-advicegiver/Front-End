@@ -58,11 +58,12 @@ export const Header = styled.h2`
 
 export const LoginImg = styled.img`
 
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 89rem;
-height: 46.8rem;
+padding: .2rem;
+height: 34rem;
+width: 35rem;
+object-fit: scale-down;
+
+
 
 @media (max-width: 800px) {
 
@@ -87,7 +88,7 @@ background: #0A235C;
 padding: .5rem;
 margin: 1rem;
 border: none;
-border-radius: 3px;
+border-radius: 5px;
 font-size: 1rem;
 &:hover {
     background: #FFCC00;
@@ -97,13 +98,26 @@ font-size: 1rem;
 }
 
 
-@media (max-width: 800px) {
-    
-}
 
 
 
 `;
+
+
+export const Body = styled.body`
+
+margin: 0 auto;
+width: 1400px;
+background: url(https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80);
+/* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+`;
+
 
 
 
