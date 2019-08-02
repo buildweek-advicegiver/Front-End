@@ -60,6 +60,7 @@ export const SignupBtn = styled.button`
     color: #FFCC00;
     font-size: 14px;
     border-radius: 8px;
+    box-shadow: 2px 2px 2px lightgrey;
     padding: 8px 8px;
     width: 40%;
     margin: 0 auto;
@@ -105,15 +106,6 @@ font-size: 1rem;
 
 `;
 
-export const divContainer = styled.div`
-
-
-background: red;
-
-
-
-
-`;
 
 
 

@@ -32,14 +32,16 @@ export default function SignUp(props) {
       
           e.preventDefault();
       
+        setUser({firstname: '', lastname: '', username:'', email: '', password: '', gender: '', age: '', usertype: ''});
+
         console.log('user state', user);
     }
 
-// {/* //     {/* ///Alexis */}
-//       {/* {/* <SignUp newUser={newUser}/>
-//         {users.map(user => (
-//           <Display user={user} />
-//         ))} 
+    function clickHandler(event) {
+        event.target.style.background= '#FFAFAF';
+        event.target.style.color= 'black';
+
+    }
 
     return (
     
@@ -173,7 +175,7 @@ export default function SignUp(props) {
                             
                     
 
-                    <SignupBtn className="btn btn-primary">Submit</SignupBtn>
+                    <SignupBtn onClick={event => clickHandler(event)} className="btn btn-primary">Submit</SignupBtn>
 
                 </Context>
 
