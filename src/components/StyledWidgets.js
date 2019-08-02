@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 //Alexis
 export const Sign = styled.div`
+    background-color: #0A235C;
     margin: 0 auto;
     margin-top: 40px;
     border: 2px solid #E3E1E1;
@@ -27,6 +28,7 @@ export const Context = styled.div`
         margin-bottom: 15px;
         margin-left: 10px;
         label {
+            color: #FFCC00;
             margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
@@ -43,6 +45,7 @@ export const Gender = styled.div`
         
     }
     label {
+        color: #FFCC00;
         display: flex;
         justify-content: space-evenly;
         margin-right: 70px;
@@ -53,7 +56,7 @@ export const Gender = styled.div`
 
 
 export const SignupBtn = styled.button`
-    background-color: #0A235C;
+    background-color: #F5F5F5;
     color: #FFCC00;
     font-size: 14px;
     border-radius: 8px;
@@ -66,7 +69,7 @@ export const SignupBtn = styled.button`
 
 export const Header = styled.h2`
     font-size: 18px;
-    color: #0A235C;
+    color: #FFFFFF;
     text-align: center;
 `;
 
