@@ -1,29 +1,41 @@
-import React, {useState} from 'react';
-import EditPosts from '/EditPosts.js';
-import AddPosts from '/AddPosts.js';
 
-function Posts() {
+import React, { useState } from 'react'
+import EditPosts from "./EditPosts.js";
+import AddPosts from "./AddPosts.js";
+import { FullDiv } from "./StyledPosts";
+
+function Posts () {
     const [posts, setPosts] = useState([]);
-  
+
     const submitPost = post => setPosts([...posts, post]);
     const update = updatedPost =>
-      setPosts([...posts.map(post => {
-          if (post.id === updatedPost.id) {
+    setPosts([...posts.map(post => {
+        if (post.id === updatedPost.id) {
             return updatedPost;
-          }
-          return post;
-        })
-      ]);
-  
+        } else{
+        return post;
+        }})
+    ]);
+    const remove = removePost =>
+    setPosts([...posts.filter(post => {
+        if (post.id === removePost.id) {
+            return false;
+        } else{
+        return true;
+        }})
+    ]);
+
     return (
-      <div>
-        {posts.map((post, i) => (
-          <EditPosts post={post} key={i} update={update} />
-        ))}
-        <AddPosts add={submitPost} />
-      </div>
-    );
-  }
-  
+        <FullDiv className="PostPage">
+            <div>
+                {posts.map((post, i) => (
+                    <EditPosts post={post} key={i} update={update} remove={remove} />
+                ))}
+                <AddPosts add={submitPost} />
+            </div>
+      </FullDiv>
+    )
+}
+
 export default Posts;
 //Mariam Farrukh
