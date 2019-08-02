@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Grenze|Lato&display=swap');
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,11 +8,64 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+.CoverImg {
+  margin: 0 auto;
+  width: 1100px;
+  height: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+
+}
+
+
+/* .LoginForm {
+
+  margin: 0 auto;  
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  color: white;
+  
+} */
+
+
+.LoginCenter{
+
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-content: space-evenly;
+  
+  color: #0A235C;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5rem;
+
+  text-align: center;
+  max-width: 400px;
+  
+  
+}
+
+
+
+
 
 

@@ -1,58 +1,73 @@
 import React, { useState } from "react";
-import { Form } from "./StyledPosts";
+import { Form, Description, Textarea, Select, Input, SubmitButton, Label, QuestionHeader } from "./StyledPosts";
 
 const AddPosts = props => {
   const [input, setInput] = useState({
-    info:"",
     title: "",
-    post: "",
-    id: null
+    description: "",
+    posttype: "",
+    postid:""
   });
 
   const inputHandler = e => {
-    setInput({ ...input, [e.target.getAttribute('info')]: e.target.value });
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const submitHandler = e => {
     e.preventDefault();
-    //** */Add in axios post request when back-end's completed **//
-    props.add({ ...input, id: Math.random() });
-    setInput({
-        info:"",
-        title: "",
-        post: "",
-        id: null
-    });
+
+    props.add(input);
+      setInput({
+          title: "",
+          description: "",
+          posttype: "",
+          postid: ""
+      });
   };
 
   return (
     <Form onSubmit={submitHandler}>
-      <h2>Ask A Question</h2>
+      <QuestionHeader>Ask A Question</QuestionHeader>
       <div>
-        <label htmlFor="Name">
+        <Label htmlFor="Name">
           Title:{" "}
-          </label>
-        <input
+        </Label>
+        <Input
             type="text"
             value={input.title}
             onChange={inputHandler}
-            info="title"
+            name="title"
           />
       </div>
       <div>
-        <label htmlFor="Post">
-          Post:{" "}
+        <label>
+          Category:{" "}
         </label>
-          <textarea
-            rows="10" 
-            cols="30"
-            type="text"
-            value={input.post}
-            onChange={inputHandler}
-            info="post"
-          />
+        <Select 
+          name="posttype"
+          type="" 
+          onChange={inputHandler} 
+          value={input.posttype} >
+            <option value="">Select Category</option>
+            <option value="Mental Health">Mental Health</option>
+            <option value="Relationship">Relationship</option>
+            <option value="Career">Career</option>
+            <option value="Misc">Misc.</option>
+        </Select>
       </div>
-      <button>Submit Question</button>
+      <div>
+        <Description>
+          <Textarea
+            rows="10" 
+            cols="60"
+            name="description"
+            type="text"
+            value={input.description}
+            onChange={inputHandler}
+          />
+        </Description>
+      </div>
+      <SubmitButton>Submit Question</SubmitButton>
     </Form>
   );
 };

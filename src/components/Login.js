@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import { LoginBtn, LoginImg, divContainer } from "./StyledWidgets";
+
+<<<<<<< HEAD
+import { LoginBtn, LoginImg, Body} from "./StyledWidgets";
+=======
+
+import { LoginBtn, LoginImg } from "./StyledWidgets";
+>>>>>>> 2c42d045d6c22f8e3e60ebaf998bc907e2335473
+
+
+import axios from 'axios';
 
 
 
 
-
-
-
+// Kelly
 
 
 export default function Login(props) {
@@ -19,22 +25,49 @@ export default function Login(props) {
 
 
     function handleChange(event) {
-        setMember(event.target.value);
+
+        const updateMember = {...member, [event.target.name]: event.target.value};
+
+
+        setMember(updateMember);
+
+        console.log(event.target.value);
     };
 
     function handleSubmit(event) {
         event.preventDefault();
         
         console.log('member state', member);
+
+
+<<<<<<< HEAD
+
+
+
+        // Link to backend
+
+=======
+>>>>>>> 2c42d045d6c22f8e3e60ebaf998bc907e2335473
+        axios.post('https://theadvice-giver.herokuapp.com/login', `grant_type=password&username=${member.username}&password=${member.password}`, {
+     headers: {
+       // btoa is converting our client id/client secret into base64
+       Authorization: `Basic ${btoa('ferko:ferko')}`,
+       'Content-Type': 'application/x-www-form-urlencoded'
+     }
+   })
+     .then(res => {
+         console.log(res, 'working!');
+         
+       localStorage.setItem('token', res.data.access_token);
+    //    this.props.history.push('/users');
+     })
+     .catch(err => console.dir(err));
+
+
     }
 
 
-
-
-
-
-
-
+    
 
 
 // Returns
@@ -42,35 +75,63 @@ export default function Login(props) {
 
     
     return(
-        
-        <form onSubmit={handleSubmit} >
 
+<<<<<<< HEAD
+        <Body>
+            <div className ="CoverImg">  
+
+        <form className='LoginForm' onSubmit={handleSubmit}  >         
+
+            <div className='LoginCenter'>  
+
+                <h3>Login to your account to begin using Advice for Life</h3>    
+=======
             <divContainer>
+
                 
+>>>>>>> 2c42d045d6c22f8e3e60ebaf998bc907e2335473
                 
-                <label> Username </label>
-                <input type='username' placeholder='Username' onChange={handleChange}
+                <label > Username </label>
+                <input type='text' name='username' placeholder='Username' onChange={handleChange}
                 value={member.username}
                 />
                 
+<<<<<<< HEAD
+                <label > Password </label>
+=======
                 <label> Password </label>
-                <input type='password' placeholder='Password' onChange={handleChange}
+
+>>>>>>> 2c42d045d6c22f8e3e60ebaf998bc907e2335473
+                <input type='password' name='password' placeholder='Password' onChange={handleChange}
+
                 value={member.password}
                 />
-                <LoginBtn type="submit">Login</LoginBtn>
 
-                <div>
-                    <LoginImg src='https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2098&q=80'/>
-                </div>
+
+
+                {/* inline eventlistener */}
+                <LoginBtn type="submit" onClick={()=>{ alert('Welcome Back! We missed you!'); }}>Login</LoginBtn>            
+
+
+                
                 
 
-            </divContainer>
+            </div>
+            
 
         </form>
+
+        
+
+        </div>
+
+        </Body>
+
+
+        
+
+        
     )
 }
 
 
-
-
-// Kelly Moreira
