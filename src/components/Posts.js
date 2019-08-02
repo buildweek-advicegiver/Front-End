@@ -26,7 +26,7 @@ function Posts () {
         Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then(res => {
             setPosts(res.data)
-            console.log(res);
+            console.log("submit post",res);
         })
         .catch(err => {
             console.dir(err);
@@ -57,7 +57,10 @@ function Posts () {
                 {Array.from(posts).map((post, i) => (
                     <EditPosts post={post} key={i} update={update} remove={remove} />
                 ))}
-                <AddPosts add={submitPost} />
+                {/* {Array.from(posts).map((post, i) => (
+                    <FeedA post={post} key={i} update={update} remove={remove} />
+                ))} */}
+                <AddPosts add={submitPost}/>
             </div>
       </FullDiv>
     )

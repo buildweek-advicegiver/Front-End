@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "./StyledPosts";
+import { Form, Description, Textarea, Select, Input, SubmitButton, Label, QuestionHeader } from "./StyledPosts";
 
 const AddPosts = props => {
   const [input, setInput] = useState({
@@ -27,12 +27,12 @@ const AddPosts = props => {
 
   return (
     <Form onSubmit={submitHandler}>
-      <h2>Ask A Question</h2>
+      <QuestionHeader>Ask A Question</QuestionHeader>
       <div>
-        <label htmlFor="Name">
+        <Label htmlFor="Name">
           Title:{" "}
-        </label>
-        <input
+        </Label>
+        <Input
             type="text"
             value={input.title}
             onChange={inputHandler}
@@ -43,7 +43,7 @@ const AddPosts = props => {
         <label>
           Category:{" "}
         </label>
-        <select 
+        <Select 
           name="posttype"
           type="" 
           onChange={inputHandler} 
@@ -53,22 +53,21 @@ const AddPosts = props => {
             <option value="Relationship">Relationship</option>
             <option value="Career">Career</option>
             <option value="Misc">Misc.</option>
-        </select>
+        </Select>
       </div>
       <div>
-        <label htmlFor="Description">
-          Description:{" "}
-        </label>
-          <textarea
+        <Description>
+          <Textarea
             rows="10" 
-            cols="30"
+            cols="60"
             name="description"
             type="text"
             value={input.description}
             onChange={inputHandler}
           />
+        </Description>
       </div>
-      <button>Submit Question</button>
+      <SubmitButton>Submit Question</SubmitButton>
     </Form>
   );
 };

@@ -16,6 +16,7 @@ export default function AppRouter() {
           <Route path='/login' component={Login} />
 
           <Route path='/posts' component={Posts} />
+          <Route path='/' component={Login} />
           
           <Route exact path='/' component={WelcomePage} />
         
